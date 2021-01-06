@@ -3,6 +3,7 @@ import axios from 'axios'
 import Novel from './Novel'
 import Search from './Search'
 
+
 export default () => {
     const [searchTerm, setSearchTerm] = useState('')
     const [novelsList, setNovelsList] = useState([])
@@ -17,7 +18,7 @@ export default () => {
         }
     
         pullData()
-      }, [searchTerm])
+      }, [])
 
       useEffect(() => {
         const filtered = novelsList.filter(novel => (
@@ -32,7 +33,7 @@ export default () => {
           <div className="title">Great Novels</div>
           <Search term={searchTerm} setter={setSearchTerm} />
           {
-            filteredNovelsList.map(novel => (<Novel key={novel.id} title={novel.title} />))
+            filteredNovelsList.map(novel => (<Novel key={novel.id} title={novel.title} authorId={novel.author.name}  />))
           }
         </div>
       )
