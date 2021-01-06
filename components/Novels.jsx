@@ -19,12 +19,20 @@ export default () => {
         pullData()
       }, [searchTerm])
 
+      useEffect(() => {
+        const filtered = novelsList.filter(novel => (
+          novel.title.toLowerCase().includes(searchTerm.toLowerCase())
+        ))
+    
+        setFilteredNovelsList(filtered)
+      }, [searchTerm])
+
       return (
         <div className="page">
           <div className="title">Great Novels</div>
-          <input type="text" name="search" onChange={event => setSearchTerm(event.target.value)} />
+          <Search term={searchTerm} setter={setSearchTerm} />
           {
-            novelsList.map(novel => (<div key={novel.id}>{`${novel.title}`}</div>))
+            filteredNovelsList.map(novel => (<Novel key={novel.id} title={novel.title} />))
           }
         </div>
       )
