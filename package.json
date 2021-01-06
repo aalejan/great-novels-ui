@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
-    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./configs/sequelize.js",
-    "lint": "./node_modules/.bin/eslint --format codeframe .",
-    "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe ."
+    "dev": "./node_modules/.bin/concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "./node_modules/.bin/webpack --progress --config webpack.dev.js",
+    "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/babel-watch server.js",
+    "lint": "./node_modules/.bin/eslint --format codeframe --ext jsx .",
+    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
+    "test": "./node_modules/.bin/mocha tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -41,6 +43,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "nodemon": "^2.0.2",
-    "webpack": "^5.11.1"
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1"
   }
 }
