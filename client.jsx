@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import React from 'react'
-import Novels from './models/novels'
+import Novels from './components/Novels'
 
 render(
   <Novels />,

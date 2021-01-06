@@ -7,4 +7,26 @@ export default () => {
     const [searchTerm, setSearchTerm] = useState('')
     const [novelsList, setNovelsList] = useState([])
     const [filteredNovelsList, setFilteredNovelsList] = useState([])
+
+    useEffect(() => {
+        async function pullData() {
+          const { data } = await axios.get('http://localhost:1337/api/novels')
+    
+          setNovelsList(data)
+          setFilteredNovelsList(data)
+        }
+    
+        pullData()
+      }, [searchTerm])
+
+      return (
+        <div className="page">
+          <div className="title">Great Novels</div>
+          <input type="text" name="search" onChange={event => setSlug(event.target.value)} />
+          {
+            NovelsList.map(novel => (<div>{`${novel.title}`}</div>))
+          }
+        </div>
+      )
+    
 }
