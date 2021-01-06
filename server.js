@@ -2,8 +2,11 @@ const express = require('express')
 const { getAllAuthors, getAuthorByIdOrName } = require('./controllers/authors')
 const { getAllGenres, getGenreById } = require('./controllers/genres')
 const { getAllNovels, getNovelByIdOrTitle } = require('./controllers/novels')
+import cors from 'cors'
+
 
 const app = express()
+app.use(cors())
 
 app.get('/api/authors', getAllAuthors)
 app.get('/api/authors/:identifier', getAuthorByIdOrName)

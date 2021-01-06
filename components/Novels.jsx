@@ -24,7 +24,7 @@ export default () => {
           <div className="title">Great Novels</div>
           <input type="text" name="search" onChange={event => setSlug(event.target.value)} />
           {
-            NovelsList.map(novel => (<div>{`${novel.title}`}</div>))
+            novelsList.map(novel => (<div>{`${novel.title}`}</div>))
           }
         </div>
       )
