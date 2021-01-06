@@ -22,9 +22,9 @@ export default () => {
       return (
         <div className="page">
           <div className="title">Great Novels</div>
-          <input type="text" name="search" onChange={event => setSlug(event.target.value)} />
+          <input type="text" name="search" onChange={event => setSearchTerm(event.target.value)} />
           {
-            novelsList.map(novel => (<div>{`${novel.title}`}</div>))
+            novelsList.map(novel => (<div key={novel.id}>{`${novel.title}`}</div>))
           }
         </div>
       )
