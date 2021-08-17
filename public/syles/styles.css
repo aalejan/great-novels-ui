@@ -1,0 +1,38 @@
+.page {
+    margin: 60px auto 0;
+    text-align: center;
+    width: 60%;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .novel-title{
+    margin: 10px;
+  }
+  
+  .subtitle {
+    font-size: 20px;
+  }
+  
+  input {
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 5px;
+    margin: 20px 0;
+    outline: none;
+    width: 250px;
+  }
+  
+  .slug {
+    font-size: 16px;
+  }
+  
+  .hero {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
